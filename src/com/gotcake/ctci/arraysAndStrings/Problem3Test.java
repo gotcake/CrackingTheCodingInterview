@@ -7,7 +7,7 @@ import static com.gotcake.ctci.arraysAndStrings.Problem3.*;
 public class Problem3Test {
 
     private static void checkRemoveDups(String inString, String outString) {
-        assertEquals(removeDups(inString), outString);
+        assertEquals("'"+inString+"' should be '"+outString+"' after removing dups", outString, removeDups(inString));
     }
 
     @Test

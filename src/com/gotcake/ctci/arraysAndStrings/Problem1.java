@@ -18,11 +18,16 @@ public class Problem1 {
      */
     public static boolean allCharsUnique(String str) {
 
+        int len = str.length();
+
+        // optimize for length of 1 or less
+        if (len < 2) return true;
+
         // a hash set to hold the characters we've already found while iterating through the string
-        HashSet<Character> charsFound = new HashSet();
+        HashSet<Character> charsFound = new HashSet<>();
 
         // iterate through all characters in the string
-        for (int i=str.length()-1; i>=0; --i) {
+        for (int i=0; i<len; ++i) {
             Character ch = str.charAt(i);
             // the the character was already found, return false: O(1)
             if (charsFound.contains(ch))

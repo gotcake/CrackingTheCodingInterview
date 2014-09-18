@@ -16,7 +16,7 @@ public class Problem2Test {
     }
 
     private void checkReversed(String orig, String reversed) throws Exception {
-        assertArrayEquals(makeCString(reversed), reverseCString(makeCString(orig)));
+        assertArrayEquals("'"+orig+"' reversed should be '"+reversed+"'",makeCString(reversed), reverseCString(makeCString(orig)));
     }
 
     @Test

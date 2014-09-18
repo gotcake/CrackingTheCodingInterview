@@ -13,64 +13,80 @@ public class Problem1Test {
     private static final String STRING_DUPE_ENDS = "abc1234567890a";
     private static final String STRING_MANY_DUPES = "this is a string with many dupes!";
 
+    private static void shouldHaveNoDupes(String s) {
+        assertTrue("'"+s+"' should have no dupes", allCharsUnique(s));
+    }
+
+    private static void shouldHaveDupes(String s) {
+        assertFalse("'"+s+"' should have at least one dupe", allCharsUnique(s));
+    }
+
+    private static void shouldHaveNoDupes_noStructures(String s) {
+        assertTrue("'"+s+"' should have no dupes", allCharsUniqueNoDataStructures(s));
+    }
+
+    private static void shouldHaveDupes_noStructures(String s) {
+        assertFalse("'"+s+"' should have at least one dupe", allCharsUniqueNoDataStructures(s));
+    }
+
     @Test
     public void testAllCharsUnique_zeroLength() throws Exception {
-        assertTrue(allCharsUnique(EMPTY_STRING));
+        shouldHaveNoDupes(EMPTY_STRING);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_zeroLength() throws Exception {
-        assertTrue(allCharsUniqueNoDataStructures(EMPTY_STRING));
+        shouldHaveNoDupes_noStructures(EMPTY_STRING);
     }
 
     @Test
     public void testAllCharsUnique_noDupesShort() throws Exception {
-        assertTrue(allCharsUnique(SHORT_STRING_NO_DUPES));
+        shouldHaveNoDupes(SHORT_STRING_NO_DUPES);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_noDupesShort() throws Exception {
-        assertTrue(allCharsUniqueNoDataStructures(SHORT_STRING_NO_DUPES));
+        shouldHaveNoDupes_noStructures(SHORT_STRING_NO_DUPES);
     }
 
     @Test
     public void testAllCharsUnique_noDupesLong() throws Exception {
-        assertTrue(allCharsUnique(LONG_STRING_NO_DUPES));
+        shouldHaveNoDupes(LONG_STRING_NO_DUPES);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_noDupesLong() throws Exception {
-        assertTrue(allCharsUniqueNoDataStructures(LONG_STRING_NO_DUPES));
+        shouldHaveNoDupes_noStructures(LONG_STRING_NO_DUPES);
     }
 
     @Test
     public void testAllCharsUnique_adjacentCharsDupe() throws Exception {
-        assertFalse(allCharsUnique(ADJACENT_CHARS_DUPE));
+        shouldHaveDupes(ADJACENT_CHARS_DUPE);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_adjacentCharsDupe() throws Exception {
-        assertFalse(allCharsUniqueNoDataStructures(ADJACENT_CHARS_DUPE));
+        shouldHaveDupes_noStructures(ADJACENT_CHARS_DUPE);
     }
 
     @Test
     public void testAllCharsUnique_endCharsDupe() throws Exception {
-        assertFalse(allCharsUnique(STRING_DUPE_ENDS));
+        shouldHaveDupes(STRING_DUPE_ENDS);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_endCharsDupe() throws Exception {
-        assertFalse(allCharsUniqueNoDataStructures(STRING_DUPE_ENDS));
+        shouldHaveDupes_noStructures(STRING_DUPE_ENDS);
     }
 
     @Test
     public void testAllCharsUnique_manyDupes() throws Exception {
-        assertFalse(allCharsUnique(STRING_MANY_DUPES));
+        shouldHaveDupes(STRING_MANY_DUPES);
     }
 
     @Test
     public void testAllCharsUniqueNoDataStructures_manyDupes() throws Exception {
-        assertFalse(allCharsUniqueNoDataStructures(STRING_MANY_DUPES));
+        shouldHaveDupes_noStructures(STRING_MANY_DUPES);
     }
 
 
