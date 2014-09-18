@@ -37,9 +37,9 @@ public class Problem1 {
     }
 
     /**
-     * Checks to see if all the characters in a string are unique (no duplicates) using
-     * a HashSet to keep track of the characters already found.
-     * Executes in O(n) time.
+     * Checks to see if all the characters in a string are unique (no duplicates) by checking character
+     * against all following characters.
+     * Executes in O(n^2) time.
      * @param str the String to check
      * @return true if there all characters are unique, false if there are duplicates
      */
